@@ -5,6 +5,10 @@
     #include <list>
     #include <cmath>
     #include "Aux_Lib.hpp"
+	#include "sdCard.h"
+
+	#define Node 10000
+
 
     class Position_Holonomic
     {
@@ -45,14 +49,20 @@
             Point_2 Point;
             float Cost;//Cost from root to node
             float Local_Cost;//Cost from parent to node
-            std::list<int> List_Children;//Node's children list
-            
+
+            //std::list<int> List_Children;//Node's children list
+
+            short int Llist_Children[70]={0};//Node's children list
+            short int Children_Count;
+
+
             Node_RRT()//builder
             {
                 Location_Parent = 0;
                 Location_List = 0;
                 Cost = 0;
                 Local_Cost = 0;
+                Children_Count=0;
             }
             ~Node_RRT()//destroyer
             {
@@ -66,7 +76,15 @@
                 Point = A.Point;
                 Cost = A.Cost;
                 Local_Cost = A.Local_Cost;
-                List_Children.splice(List_Children.begin(), A.List_Children);
+
+                //List_Children.splice(List_Children.begin(), A.List_Children);
+
+               Children_Count=A.Children_Count;
+
+                for(int i=0;i<A.Children_Count;i++)
+		        {
+		        	Llist_Children[i]=A.Llist_Children[i];
+		        }
             }
     };
     class Region//this class is used by the kd-tree structure
@@ -101,7 +119,7 @@
                 y_min = Center_Position.y - r_n;
                 y_max = Center_Position.y + r_n;
                 Squared_r_n = Squared_r_n_;
-		
+
 		x_min = y_min = Constant_Max;
 		x_max = y_max = Constant_Min;
 		for( auto const vi : Environment.vertex )

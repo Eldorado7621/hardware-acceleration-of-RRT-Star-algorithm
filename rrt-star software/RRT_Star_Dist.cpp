@@ -1,21 +1,26 @@
 #include "RRT_Star.hpp"
+#include <cstring>
+
+#define Node 10000
+#define SIZE_XNEAR 30
 
 using namespace std;
 class RRT_Star_Dist
 {
-    public: 
+    public:
     ~RRT_Star_Dist()
     {
         std::cout<<"destructor RRT_Star"<<std::endl;
     }
-    static void Build_RRT_Star( Node_RRT RRT_Star[10000], Position_Holonomic &Pos_Init, 
-        int Total_Num_Node, float R_Robot, float Gamma_rrt, Region &RRT_Star_Region, 
+    static void Build_RRT_Star( Node_RRT RRT_Star[Node], Position_Holonomic &Pos_Init,
+        int Total_Num_Node, float R_Robot, float Gamma_rrt, Region &RRT_Star_Region,
         float d, float mu, Polygon_2 &Environment, bool Verbose)
     {
         if( Verbose ) cout << "Buil RRT*" <<endl;
 
-        list<int> X_near;
-        list<int> List_pos_near;
+         unsigned short int X_near[SIZE_XNEAR]={0};
+         // list<int> X_near;
+        int List_pos_near[40];
         list<int> List_Path;
         Node_RRT x_rand;
         int x_nearest;
@@ -30,39 +35,58 @@ class RRT_Star_Dist
         float Squared_r_n = 0;
 
 	Point_2 Point_init( Pos_Init.x, Pos_Init.y );
-        
+
 	RRT_Star[0].Position = Pos_Init;
         RRT_Star[0].Point = Point_2( Pos_Init.x, Pos_Init.y );
         RRT_Star[0].Location_Parent = 0;
         int i = 1;
-        while( i < Total_Num_Node )
+        int children_list_index;
+        ofstream saveXmin;
+        saveXmin.open( "Save/saveARRTCost.txt" );
+
+        while( i < Node )
         {
+            children_list_index=0;
             x_rand = Rand_Conf( RRT_Star_Region );
             x_nearest = Nearest( x_rand, RRT_Star, i );
 
-            
             x_new = StreamReader( RRT_Star[x_nearest], x_rand);
-            if( Obstacle_Free( RRT_Star[x_nearest].Position, x_new.Position, 
+
+            if( Obstacle_Free( RRT_Star[x_nearest].Position, x_new.Position,
 			Squared_R_Robot, Environment ) )
             {
                 r_n = fmin( Gamma_rrt*pow( log( i ) / i, 1.0 / d ), mu );
-                X_near.clear();
+
+               //memset(X_near, 0, sizeof X_near);
+               for(int sizett=0;sizett<SIZE_XNEAR; sizett++)
+                X_near[sizett]=0;
+               //X_near.clear();
                 Squared_r_n = r_n*r_n;
-                Near( X_near, RRT_Star, x_new, Squared_r_n, i );
+                int X_near_count=0;
+                Near( X_near, RRT_Star, x_new, Squared_r_n, i,X_near_count );
 
                 x_min = x_nearest;
+                //cout<<"xmin "<<x_min<<" i "<<i<<endl;
                 c_min_local = Cost( RRT_Star[x_nearest ].Position, x_new.Position );
                 c_min = RRT_Star[x_nearest ].Cost + c_min_local;
-                List_pos_near.clear();
-
-                for( auto pos_x_near : X_near)
+                memset(List_pos_near, 0, sizeof List_pos_near);
+                //List_pos_near.clear();
+                int pos_x_near=0;
+                int List_pos_near_index=0;
+                for(int xnear_index=0;xnear_index<X_near_count;xnear_index++)
                 {
+                    pos_x_near=X_near[xnear_index];
+
                     cost_tem_local = Cost( RRT_Star[pos_x_near ].Position, x_new.Position );
                     cost_tem = RRT_Star[pos_x_near ].Cost + cost_tem_local;
+
                     if( Obstacle_Free( RRT_Star[pos_x_near ].Position, x_new.Position,
                         Squared_R_Robot, Environment))
                     {
-                        List_pos_near.push_back( pos_x_near );
+                        //List_pos_near.push_back( pos_x_near );
+                        List_pos_near[List_pos_near_index]=pos_x_near;
+                        List_pos_near_index++;
+
                         if(cost_tem < c_min)
                         {
                             x_min = pos_x_near;
@@ -71,43 +95,100 @@ class RRT_Star_Dist
                         }
                     }
                 }
-                List_pos_near.remove( x_min );
 
+                //List_pos_near.remove( x_min );
+
+                //remove x_min from the list_pos_near
+                int ctt=0;
+                while(ctt < List_pos_near_index)
+                {
+                    if(List_pos_near[ctt]==x_min)
+                    {
+                                //replace the value with the value of next index
+                                int cttt=ctt;
+                                while(cttt<List_pos_near_index)
+                                {
+                                    List_pos_near[cttt]=List_pos_near[cttt+1];
+                                    cttt++;
+                                }
+                                List_pos_near_index--;
+                    }
+                            ctt++;
+                }
                 x_new.Location_Parent = x_min;
                 x_new.Cost = c_min;
                 x_new.Local_Cost = c_min_local;
                 x_new.Location_List = i;
-                RRT_Star[x_min ].List_Children.push_back( i );
+
+                short int index=RRT_Star[ x_min].Children_Count;
+
+                RRT_Star[ x_min].Llist_Children[index]=i;
+                RRT_Star[ x_min].Children_Count++;
+
                 RRT_Star[i].Copy( x_new );
 
-                for( auto tem_pos_x_near : List_pos_near)
+                int tem_pos_x_near=0;
+                for (int list_pos_ele_ind=0;list_pos_ele_ind<List_pos_near_index;list_pos_ele_ind++)
                 {
-                    cost_tem_local = Cost( RRT_Star[i].Position, 
+                    tem_pos_x_near=List_pos_near[list_pos_ele_ind];
+                    cost_tem_local = Cost( RRT_Star[i].Position,
 		    	    RRT_Star[tem_pos_x_near ].Position );
                     cost_tem = RRT_Star[i].Cost + cost_tem_local;
 
                     if( cost_tem < RRT_Star[tem_pos_x_near ].Cost )
                     {
-                        RRT_Star[RRT_Star[tem_pos_x_near ].Location_Parent ].List_Children.remove( tem_pos_x_near );
+                        int ctt=0;
+                        while(ctt < RRT_Star[ RRT_Star[tem_pos_x_near ].Location_Parent].Children_Count)
+                        {
+                            if(RRT_Star[RRT_Star[ tem_pos_x_near ].Location_Parent ].Llist_Children[ctt]==tem_pos_x_near)
+                            {
+                                //replace the value with the value of next index
+                                int cttt=ctt;
+                                while(cttt<RRT_Star[ RRT_Star[tem_pos_x_near ].Location_Parent].Children_Count)
+                                {
+                                    RRT_Star[RRT_Star[ tem_pos_x_near ].Location_Parent ].Llist_Children[cttt]=
+                                    RRT_Star[RRT_Star[ tem_pos_x_near ].Location_Parent ].Llist_Children[cttt+1];
+                                    cttt++;
+                                }
+                                RRT_Star[ RRT_Star[tem_pos_x_near ].Location_Parent].Children_Count--;
+                            }
+                            ctt++;
+                        }
+
+
                         RRT_Star[tem_pos_x_near ].Location_Parent = i;
-                        RRT_Star[i ].List_Children.push_back( tem_pos_x_near );
-                        Rewire_the_tree( tem_pos_x_near, RRT_Star );
+
+                       RRT_Star[i].Llist_Children[RRT_Star[ i].Children_Count]= tem_pos_x_near;
+					   RRT_Star[ i].Children_Count++;
+                       ARewire_the_tree( tem_pos_x_near, RRT_Star );
                     }
+
                 }
+
+                if(i==9999)
+                {
+                    for (int j=0;j<i;j++)
+                        saveXmin << RRT_Star[j ].Cost<<"," <<endl;
+                }
+
                 i++;
-                if( i%10000 == 0 && Verbose ) cout<< "Nodo: " + to_string( i ) + ", r_n: " + to_string( r_n )<<endl;
+                if( i%Node == 0 && Verbose ) cout<< "Nodo: " + to_string( i ) + ", r_n: " + to_string( r_n )<<endl;
             }
+
         }
-    } 
+
+         saveXmin.close();
+    }
     static Node_RRT Rand_Conf( Region &Range )
     {
         Node_RRT Tem_Node;
         float x = ( ( ( float ) rand() / ( RAND_MAX ) ) )*( Range.x_max - Range.x_min ) + Range.x_min;
         float y = ( ( ( float ) rand() / ( RAND_MAX ) ) )*( Range.y_max - Range.y_min ) + Range.y_min;
         Tem_Node.Position.Insert_Position( x, y );
+        //cout<<"x:"<<x<<"y:"<<y<<endl;
         return Tem_Node;
     }
-    static int Nearest( Node_RRT &x_rand, Node_RRT RRT_Star[10000], int N )
+    static int Nearest( Node_RRT &x_rand, Node_RRT RRT_Star[Node], int N )
     {
         int Pos_Nearest_Node = 0;
         int i = 0;
@@ -132,22 +213,25 @@ class RRT_Star_Dist
         }
         return Pos_Nearest_Node;
     }
-    static float Cal_Dist( Node_RRT &_A, Node_RRT &_B )
-    {
-        float D = 0;
-        Point_2 A( _A.Position.x, _A.Position.y );
-        Point_2 B( _B.Position.x, _B.Position.y );
-        D = sqrt( A.squared_distance( B ) );
-        return D;
-    }
-    static float Cal_Squared_Dist( Node_RRT &_A, Node_RRT &_B )
-    {
-        float D = 0;
-        Point_2 A( _A.Position.x, _A.Position.y );
-        Point_2 B( _B.Position.x, _B.Position.y );
-        D = A.squared_distance( B );
-        return D;
-    }
+
+	static float Cal_Dist( Node_RRT &x_A, Node_RRT &x_B )
+	{
+		float D = 0;
+		Point_2 A( x_A.Position.x, x_A.Position.y );
+		Point_2 B( x_B.Position.x, x_B.Position.y );
+		D = sqrt( A.squared_distance( B ) );
+		return D;
+	}
+	static float Cal_Squared_Dist( Node_RRT &x_A, Node_RRT &x_B )
+	{
+		float D = 0;
+		Point_2 A( x_A.Position.x, x_A.Position.y );
+		Point_2 B( x_B.Position.x, x_B.Position.y );
+		D = A.squared_distance( B );
+		return D;
+	}
+
+
     static Node_RRT StreamReader( Node_RRT &x_nearest, Node_RRT &x_rand )
     {
         Node_RRT tem;
@@ -163,11 +247,11 @@ class RRT_Star_Dist
             tem.Position.y = ( x_rand.Position.y - x_nearest.Position.y )*t +
                 x_nearest.Position.y;
         }
-        
+
         tem.Point = Point_2( tem.Position.x, tem.Position.y );
         return tem;
     }
-    static bool Obstacle_Free( Position_Holonomic &A, Position_Holonomic &B, float Squared_R_Robot, 
+    static bool Obstacle_Free( Position_Holonomic &A, Position_Holonomic &B, float Squared_R_Robot,
         Polygon_2 &Geo)
     {
         bool Bool = true;
@@ -186,7 +270,7 @@ class RRT_Star_Dist
                 Bool = false;
                 return Bool;
             }
-        } 
+        }
         return Bool;
     }
     static bool Colition( Point_2 &A, float Squared_R_Robot, Polygon_2 &Geo )
@@ -198,12 +282,17 @@ class RRT_Star_Dist
         }
         return Bool;
     }
-    static void Near( list<int> &X_near, Node_RRT RRT_Star[10000], Node_RRT &x_new, float Squared_r_n, int N )
+    static void Near(  unsigned short int X_near[SIZE_XNEAR], Node_RRT RRT_Star[Node], Node_RRT &x_new, float Squared_r_n, int N , int &X_near_count)
     {
+        X_near_count=0;
         for( int i=0; i<N; i++ )
         {
-            if( Cal_Squared_Dist( x_new, RRT_Star[i] ) < Squared_r_n ) X_near.push_back( RRT_Star[i ].Location_List );
-	}
+            if( Cal_Squared_Dist( x_new, RRT_Star[i] ) < Squared_r_n )
+            {
+               X_near[X_near_count]= RRT_Star[i ].Location_List;
+			    X_near_count++;
+            }
+	    }
     }
     static float Cost( Position_Holonomic &A, Position_Holonomic &B )
     {
@@ -224,7 +313,35 @@ class RRT_Star_Dist
 
         return Angle;
     }
-    static void Rewire_the_tree( int Pos_x, Node_RRT RRT_Star[10000] )
+
+    static void ARewire_the_tree( int Pos_x, Node_RRT RRT_Star[Node] )
+    {
+	int list_n[30];
+    short count_list=0;
+    list_n[0]=Pos_x;
+    count_list++;
+	int n;
+	float local_cost;
+	while( count_list!=0 )
+	{
+	    n = list_n[count_list-1];
+	    list_n[count_list-1]=0;
+        count_list--;
+	    local_cost = Cost( RRT_Star[RRT_Star[n ].Location_Parent ].Position,
+		    RRT_Star[n].Position );
+	    RRT_Star[n].Cost = RRT_Star[RRT_Star[n].Location_Parent ].Cost + local_cost;
+	    RRT_Star[n ].Local_Cost = local_cost;
+
+        for(int i=0;i<RRT_Star[n ].Children_Count;i++)
+        {
+            list_n[count_list]=RRT_Star[n ].Llist_Children[i];
+            count_list++;
+        }
+	}
+
+    }
+
+    static void Rewire_the_tree( int Pos_x, Node_RRT RRT_Star[Node] )
     {
 	list<int> list_n;
 	list_n.push_back( Pos_x );
@@ -234,13 +351,13 @@ class RRT_Star_Dist
 	{
 	    n = list_n.back();
 	    list_n.pop_back();
-	    local_cost = Cost( RRT_Star[RRT_Star[n ].Location_Parent ].Position, 
+	    local_cost = Cost( RRT_Star[RRT_Star[n ].Location_Parent ].Position,
 		    RRT_Star[n].Position );
 	    RRT_Star[n].Cost = RRT_Star[RRT_Star[n].Location_Parent ].Cost + local_cost;
 	    RRT_Star[n ].Local_Cost = local_cost;
 
-	    for( auto Pos_Son_int_List : RRT_Star[n ].List_Children )
-		list_n.push_back( Pos_Son_int_List );
+	   // for( auto Pos_Son_int_List : RRT_Star[n ].List_Children )
+		//list_n.push_back( Pos_Son_int_List );
 	}
     }
     static void Save_Graph( vector<Node_RRT> &RRT_Star, string Name )
@@ -295,6 +412,6 @@ class RRT_Star_Dist
 	    }
 	}
 	if( best == -1 ) cout<<"Error best"<<endl;
-	return best; 
+	return best;
     }
 };

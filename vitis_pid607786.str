@@ -1,0 +1,382 @@
+/*
+
+Xilinx Vitis v2021.2.0 (64-bit) [Major: 2021, Minor: 2]
+SW Build 3363750 on 2021-10-16-13:10:08
+
+Process ID (PID): 607786
+License: Customer
+
+Current time: 	Thu Dec 01 23:37:25 CET 2022
+Time zone: 	Central European Standard Time (Europe/Berlin)
+
+OS: Ubuntu
+OS Version: 5.14.0-1054-oem
+OS Architecture: amd64
+Available processors (cores): 8
+
+Display: :0
+Screen size: 1920x1080
+Available screens: 2
+Available disk space: 139 GB
+
+Java version: 	11.0.11 64-bit
+Java home: 	/tools/Xilinx/Vitis/2021.2/tps/lnx64/jre11.0.11_9
+Java executable location: 	/tools/Xilinx/Vitis/2021.2/tps/lnx64/jre11.0.11_9/bin/java
+Java initial memory (-Xms): 	64 MB
+Java maximum memory (-Xmx):	 1,024 MB
+
+Java library paths: /tools/Xilinx/Vitis/2021.2/tps/lnx64/javafx-sdk-11.0.2/lib:/tools/Xilinx/Vitis/2021.2/lib/lnx64.o/Ubuntu/20:/tools/Xilinx/Vitis/2021.2/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vitis/2021.2/lib/lnx64.o:/tools/Xilinx/Vitis/2021.2/tps/lnx64/jre11.0.11_9/lib/:/tools/Xilinx/Vitis/2021.2/tps/lnx64/jre11.0.11_9/lib//server:/tools/Xilinx/Vitis/2021.2/lib/lnx64.o:/tools/Xilinx/Vitis/2021.2/lib/lnx64.o/Ubuntu/20:/tools/Xilinx/Vitis/2021.2/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vitis/2021.2/lib/lnx64.o:/tools/Xilinx/Vitis/2021.2/tps/lnx64/python-3.8.3/lib:/tools/Xilinx/Vitis/2021.2/aietools/lib/lnx64.o::/home/sam/opt/openmpi/lib:/tools/Xilinx/Vitis/2021.2/bin/../lnx64/tools/dot/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+
+Java class paths: /tools/Xilinx/Vitis/2021.2/eclipse/lnx64.o//plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
+LD_LIBRARY_PATH: /tools/Xilinx/Vitis
+
+User name: 	sam
+User home directory: /home/sam
+User working directory: /home/sam/Documents/Thesis/git/hardware-acceleration-of-RRT-Star-algorithm
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vitis
+HDI_APPROOT: /tools/Xilinx/Vitis/2021.2
+RDI_DATADIR: /tools/Xilinx/Vitis/2021.2/data
+RDI_BINDIR: /tools/Xilinx/Vitis/2021.2/bin
+
+Vitis preferences directory: /home/sam/.Xilinx/Vitis/2021.2/
+Vitis workspace directory: /home/sam/git_workspace/thesis
+Vitis workspace log file location: /home/sam/git_workspace/thesis/.metadata/.log
+Engine tmp dir: 	
+
+Xilinx Environment Variables
+----------------------------
+XILINX_DSP: 
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2021.2
+XILINX_PLANAHEAD: /tools/Xilinx/Vitis/2021.2
+XILINX_SDK: /tools/Xilinx/Vitis/2021.2
+XILINX_VITIS: /tools/Xilinx/Vitis/2021.2
+XILINX_VIVADO: /tools/Xilinx/Vivado/2021.2
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2021.2
+_RDI_DONT_SET_XILINX_AS_PATH: True
+
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+selectTreeTable("Includes", "ecg_s27_app_system > ecg_s27_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("ecg_s27_app_system", "ecg_s27_app_system > ecg_s27_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("ecg_s27_app_system", "ecg_s27_app_system > ecg_s27_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("File", "ecg_s27_app_system", "WorkbenchWindow", "MenuItem.FILE");
+selectMenuItem("New", "ecg_s27_app_system", "WorkbenchWindow", "MenuItem.NEW");
+selectMenuItem("Platform Project", "ecg_s27_app_system", "WorkbenchWindow", "MenuItem.PLATFORM_PROJECT");
+setTextField("nearestdec1_pp", "New Platform Project (Create new platform project)", "NewPlatformProjectWizard", "Text.PLATFORM_PROJECT_NAME");
+selectButton("Next", "New Platform Project (Create new platform project)", "NewPlatformProjectWizard", "Button.NEXT");
+selectButton("Browse", "New Platform Project (Platform)", "NewPlatformProjectWizard", "Button.BROWSE");
+setFileDialog("/home/sam/project/vivado/nearest/design_20_wrapper.xsa", "Create Platform from XSA", "SDXFileDialog", "Button.OK");
+selectButton("Finish", "New Platform Project (Platform)", "NewPlatformProjectWizard", "Button.FINISH");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_pp", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectMenuItem("File", "nearestdec1_pp", "WorkbenchWindow", "MenuItem.FILE");
+selectMenuItem("New", "nearestdec1_pp", "WorkbenchWindow", "MenuItem.NEW");
+selectMenuItem("Application Project", "nearestdec1_pp", "WorkbenchWindow", "MenuItem.APPLICATION_PROJECT");
+selectButton("Next", "New Application Project (Create a New Application Project)", "NewAppProjectWizard", "Button.NEXT");
+selectTreeTable("nearestdec1_pp", "New Application Project (Platform)", "NewAppProjectWizard", "TreeViewer.ArrayTreeContentProvider");
+selectButton("Next", "New Application Project (Platform)", "NewAppProjectWizard", "Button.NEXT");
+setTextField("nearestdec1_app", "New Application Project (Application Project Details)", "NewAppProjectWizard", "Text.APPLICATION_PROJECT_NAME");
+selectButton("Next", "New Application Project (Application Project Details)", "NewAppProjectWizard", "Button.NEXT");
+selectButton("Next", "New Application Project (Domain)", "NewAppProjectWizard", "Button.NEXT");
+selectTreeTable("Empty Application", "Embedded software development templates", "New Application Project (Templates)", "NewAppProjectWizard", "TreeViewer.TemplateContentProvider");
+selectButton("Finish", "New Application Project (Templates)", "NewAppProjectWizard", "Button.FINISH");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("main.h", "nearest_system > nearest > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "nearest_system > nearest > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("nearest_system", "nearest_system > nearest > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("src", "nearestdec1_app_system > nearestdec1_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "nearestdec1_app_system > nearestdec1_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTextEditor("main.cpp", "nearestdec1_app/src/main.cpp", EventType.POPUP_TRIGGER_CLICK, "CEditor", "StyledText.MAIN_CPP");
+selectMenuItem("Open Declaration", "main.cpp", "WorkbenchWindow", "MenuItem.OPEN_DECLARATION");
+activateView("main.cpp", "nearestdec1_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+selectTextEditor("main.cpp", "nearestdec1_app/src/main.cpp", EventType.POPUP_TRIGGER_CLICK, "CEditor", "StyledText.MAIN_CPP");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("main.cpp", "newcwt_1411_app_system > newcwt_1411_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("newcwt_1411_app_system", "newcwt_1411_app_system > newcwt_1411_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("Aux_Lib.hpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("main.cpp", "nearestdec1_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+activateView("main.cpp", "rrt_nearest_appp/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+selectTreeTable("Aux_Lib.hpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("sdCard.h", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("Auxiliary.cpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("RRT_Star_Dist.cpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("RRT_Star.hpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("sdCard.cpp", "rrt_nearest_appp_system > rrt_nearest_appp > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("main.cpp", "nearestdec1_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+selectTreeTable("main.h", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectButton("OK", "Delete Resources", "RefactoringWizardDialog2", "Button.OK");
+selectTreeTable("src", "nearestdec1_app_system > nearestdec1_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "nearestdec1_app_system > nearestdec1_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("main.cpp", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTextEditor("main.cpp", "nearestdec1_app/src/main.cpp", EventType.POPUP_TRIGGER_CLICK, "CEditor", "StyledText.MAIN_CPP");
+selectMenuItem("Open Declaration", "main.cpp", "WorkbenchWindow", "MenuItem.OPEN_DECLARATION");
+activateView("*main.cpp", "nearestdec1_app/src/main.cpp", "Editor", "CTabItem.*MAIN_CPP");
+activateView("xnearest.h", "nearestdec1_pp/export/nearestdec1_pp/sw/nearestdec1", "CEditor", "CTabItem.XNEAREST_H");
+activateView("main.cpp", "rrt_nearest_appp/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+closeView("main.cpp", "rrt_nearest_appp/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+activateView("main.cpp", "newcwt_1411_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+activateView("xnearest.h", "nearestdec1_pp/export/nearestdec1_pp/sw/nearestdec1", "CEditor", "CTabItem.XNEAREST_H");
+closeView("main.cpp", "nearestdec1_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+closeView("main.cpp", "newcwt_1411_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+closeView("nearestdec1_app_system", "nearestdec1_app_system/nearestdec1_app_system.sprj", "SystemSettingsEditor", "CTabItem.NEARESTDEC1_APP_SYSTEM");
+closeView("nearestdec1_pp", "nearestdec1_pp/platform.spr", "ScwEditor", "CTabItem.NEARESTDEC1_PP");
+selectToolBarButton("Show List", "xnearest.h", "CEditor", "ToolItem.SHOW_LIST");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_pp", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "nearestdec1_app_system > nearestdec1_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("xnearest.h", "nearestdec1_pp/export/nearestdec1_pp/sw/nearestdec1", "CEditor", "CTabItem.XNEAREST_H");
+activateView("main.cpp", "nearestdec1_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+selectTreeTable("nearestdec1_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("export", "nearestdec1_pp", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("platform.spr", "nearestdec1_pp", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTree("Board Support Package", "nearestdec1_pp > ps7_cortexa9_0 > standalone on ps7_cortexa9_0", "nearestdec1_pp", "ScwEditor", "Tree");
+selectTab("Drivers", "Drivers", "ScwEditor", "TabItem.DRIVERS");
+selectTree("Board Support Package", "nearestdec1_pp > ps7_cortexa9_0 > standalone on ps7_cortexa9_0", EventType.DOUBLE_CLICK, "nearestdec1_pp", "ScwEditor", "Tree");
+selectButton("Modify BSP Settings", "nearestdec1_pp", "ScwEditor", "Button.MODIFY_BSP_SETTINGS");
+selectTreeTable("Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectButton("OK", "Board Support Package Settings", "BspSettingsView", "Button.OK");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_pp", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("nearestdec1_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("main.cpp", "nearestdec1_app_system > nearestdec1_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTextEditor("main.cpp", "nearestdec1_app/src/main.cpp", EventType.POPUP_TRIGGER_CLICK, "CEditor", "StyledText.MAIN_CPP");
+selectMenuItem("Open Declaration", "main.cpp", "WorkbenchWindow", "MenuItem.OPEN_DECLARATION");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_app_system", "nearestdec1_app_system > nearestdec1_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+activateView("Vitis Serial Terminal", "Sdkterminal", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectToolBarButton("Connect to serial port", "Vitis Serial Terminal", "SDKTerminalView", "ToolItem.CONNECT_TO_SERIAL");
+selectCombo("/dev/ttyUSB1", "Connect to serial port", "SerialConnectionDialog", "ComboViewer.PORT");
+selectButton("OK", "Connect to serial port", "SerialConnectionDialog", "Button.OK");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "nearestdec1_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTextEditor("main.cpp", "nearestdec1_app/src/main.cpp", EventType.POPUP_TRIGGER_CLICK, "CEditor", "StyledText.MAIN_CPP");
+selectMenuItem("Open Declaration", "main.cpp", "WorkbenchWindow", "MenuItem.OPEN_DECLARATION");
+activateView("main.cpp", "nearestdec1_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+selectTreeTable("nearestdec1_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("lscript.ld", "nearestdec1_app_system > nearestdec1_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+setTextField("0x1000000", "lscript.ld", "LscriptEditor", "Text.STACK_SIZE");
+setTextField("0x1000000", "lscript.ld", "LscriptEditor", "Text.HEAP_SIZE");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("nearestdec1_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "nearestdec1_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectButton("OK", "Error Launching Program", "ErrorDialog", "Button.OK");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "nearestdec1_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("main.cpp", "nearestdec1_app_system > nearestdec1_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("nearestdec1_app_system", "nearestdec1_app_system > nearestdec1_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("nearestdec1_app_system", "nearestdec1_app_system > nearestdec1_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "nearestdec1_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("nearest_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Delete", "Explorer", "ProjectExplorer", "MenuItem.DELETE");
+selectCheckBox("Delete project contents on disk", Boolean.TRUE, "Delete Resources", "RefactoringWizardDialog2", "Button.DELETE_PROJECT_CONTENTS");
+selectButton("OK", "Delete Resources", "RefactoringWizardDialog2", "Button.OK");
+selectTreeTable("nearest_pp", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Delete", "Explorer", "ProjectExplorer", "MenuItem.DELETE");
+selectCheckBox("Delete project contents on disk", Boolean.TRUE, "Delete Resources", "RefactoringWizardDialog2", "Button.DELETE_PROJECT_CONTENTS");
+selectButton("OK", "Delete Resources", "RefactoringWizardDialog2", "Button.OK");
+selectTreeTable("nearestdec1_app_system", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("rrt_nearest_appp_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Delete", "Explorer", "ProjectExplorer", "MenuItem.DELETE");
+selectCheckBox("Delete project contents on disk", Boolean.TRUE, "Delete Resources", "RefactoringWizardDialog2", "Button.DELETE_PROJECT_CONTENTS");
+selectButton("OK", "Delete Resources", "RefactoringWizardDialog2", "Button.OK");
+selectTreeTable("rrt_nearest_pp", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Delete", "Explorer", "ProjectExplorer", "MenuItem.DELETE");
+selectCheckBox("Delete project contents on disk", Boolean.TRUE, "Delete Resources", "RefactoringWizardDialog2", "Button.DELETE_PROJECT_CONTENTS");
+selectButton("OK", "Delete Resources", "RefactoringWizardDialog2", "Button.OK");
+selectMenuItem("File", "nearestdec1_app", "WorkbenchWindow", "MenuItem.FILE");
+selectMenuItem("New", "nearestdec1_app", "WorkbenchWindow", "MenuItem.NEW");
+selectMenuItem("Platform Project", "nearestdec1_app", "WorkbenchWindow", "MenuItem.PLATFORM_PROJECT");
+selectButton("Next", "New Platform Project (Create new platform project)", "NewPlatformProjectWizard", "Button.NEXT");
+setTextField("rrt_nearest_pp", "New Platform Project (Platform)", "NewPlatformProjectWizard", "Text.PLATFORM_PROJECT_NAME");
+selectButton("Browse", "New Platform Project (Platform)", "NewPlatformProjectWizard", "Button.BROWSE");
+setFileDialog("/home/sam/project/vivado/nearest/design_21_wrapper.xsa", "Create Platform from XSA", "SDXFileDialog", "Button.OK");
+selectButton("Finish", "New Platform Project (Platform)", "NewPlatformProjectWizard", "Button.FINISH");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("platform.spr", "rrt_nearest_pp", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("platform.spr", "rrt_nearest_pp", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTree("Board Support Package", "rrt_nearest_pp > ps7_cortexa9_0 > standalone on ps7_cortexa9_0", "rrt_nearest_pp", "ScwEditor", "Tree");
+selectTab("Drivers", "Drivers", "ScwEditor", "TabItem.DRIVERS");
+selectTree("Board Support Package", "rrt_nearest_pp > ps7_cortexa9_0 > standalone on ps7_cortexa9_0", EventType.DOUBLE_CLICK, "rrt_nearest_pp", "ScwEditor", "Tree");
+selectButton("Modify BSP Settings", "rrt_nearest_pp", "ScwEditor", "Button.MODIFY_BSP_SETTINGS");
+selectTreeTable("Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectButton("OK", "Board Support Package Settings", "BspSettingsView", "Button.OK");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("rrt_nearest_pp", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectMenuItem("File", "rrt_nearest_pp", "WorkbenchWindow", "MenuItem.FILE");
+selectMenuItem("New", "rrt_nearest_pp", "WorkbenchWindow", "MenuItem.NEW");
+selectMenuItem("Application Project", "rrt_nearest_pp", "WorkbenchWindow", "MenuItem.APPLICATION_PROJECT");
+selectButton("Next", "New Application Project (Create a New Application Project)", "NewAppProjectWizard", "Button.NEXT");
+selectTreeTable("rrt_nearest_pp", "New Application Project (Platform)", "NewAppProjectWizard", "TreeViewer.ArrayTreeContentProvider");
+selectButton("Next", "New Application Project (Platform)", "NewAppProjectWizard", "Button.NEXT");
+selectButton("Next", "New Application Project (Application Project Details)", "NewAppProjectWizard", "Button.NEXT");
+setTextField("rrt_nearest_app", "New Application Project (Domain)", "NewAppProjectWizard", "Text.APPLICATION_PROJECT_NAME");
+selectButton("Next", "New Application Project (Domain)", "NewAppProjectWizard", "Button.NEXT");
+selectTreeTable("Empty Application", "Embedded software development templates", "New Application Project (Templates)", "NewAppProjectWizard", "TreeViewer.TemplateContentProvider");
+selectButton("Finish", "New Application Project (Templates)", "NewAppProjectWizard", "Button.FINISH");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("Aux_Lib.hpp", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("Auxiliary.cpp", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("RRT_Star_Dist.cpp", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("RRT_Star.hpp", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("sdCard.cpp", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("sdCard.h", "nearestdec1_app_system > nearestdec1_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("src", "nearestdec1_app_system > nearestdec1_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("nearestdec1_app_system", "nearestdec1_app_system > nearestdec1_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("src", "rrt_nearest_app_system > rrt_nearest_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("lscript.ld", "rrt_nearest_app_system > rrt_nearest_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+setTextField("0x1000000", "lscript.ld", "LscriptEditor", "Text.STACK_SIZE");
+setTextField("0x1000000", "lscript.ld", "LscriptEditor", "Text.HEAP_SIZE");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt_nearest_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+selectButton("Yes", "Conflict", "MessageDialog", "Button.YES");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectButton("Clear", "Vitis Serial Terminal", "SDKTerminalView", "Button.CLEAR");
+selectButton("OK", "Error Launching Program", "ErrorDialog", "Button.OK");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt_nearest_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("main.cpp", "rrt_nearest_app_system > rrt_nearest_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("rrt_nearest_app_system", "rrt_nearest_app_system > rrt_nearest_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("rrt_nearest_app_system", "rrt_nearest_app_system > rrt_nearest_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt_nearest_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt_nearest_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("rrt_nearest_app_system", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "newcwt_1411_app_system > newcwt_1411_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+closeView("main.cpp", "newcwt_1411_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("rrt_nearest_app_system", "newcwt_1411_app_system > newcwt_1411_app > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("rrt_just_sdcard_app_system", "newcwt_1411_app_system > newcwt_1411_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("rrt_nearest_app_system", "newcwt_1411_app_system > newcwt_1411_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectButton("Clear", "Vitis Serial Terminal", "SDKTerminalView", "Button.CLEAR");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt_nearest_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt_nearest_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTextEditor("main.cpp", "rrt_nearest_app/src/main.cpp", EventType.POPUP_TRIGGER_CLICK, "CEditor", "StyledText.MAIN_CPP");
+selectMenuItem("Open Declaration", "main.cpp", "WorkbenchWindow", "MenuItem.OPEN_DECLARATION");
+selectButton("OK", "Open Declaration", "Button", "OK");
+activateView("main.cpp", "rrt_nearest_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("rrt_nearest_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt_nearest_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("rrt_nearest_app_system", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("lscript.ld", "rrt_nearest_app/src/lscript.ld", "Editor", "CTabItem.LSCRIPT_LD");
+closeView("lscript.ld", "rrt_nearest_app/src/lscript.ld", "LscriptEditor", "CTabItem.LSCRIPT_LD");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("src", "rrt_nearest_app_system > rrt_nearest_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("rrt_nearest_app_system", "rrt_nearest_app_system > rrt_nearest_app", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("main.cpp", "rrt_single_array_copy_system > rrt_single_array_copy > src", "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("RRT_Star_Dist.cpp", "rrt_single_array_copy_system > rrt_single_array_copy > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("rrt2_single_array_app_system", "rrt_single_array_copy_system > rrt_single_array_copy > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Open System Project", "Explorer", "ProjectExplorer", "MenuItem.OPEN_SYSTEM_PROJECT");
+selectTreeTable("RRT_Star_Dist.cpp", "rrt2_single_array_app_system > rrt2_single_array_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("RRT_Star.hpp", "rrt2_single_array_app_system > rrt2_single_array_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("main.cpp", "rrt_nearest_app/src/main.cpp", "CEditor", "CTabItem.MAIN_CPP");
+activateView("RRT_Star.hpp", "rrt2_single_array_app/src/RRT_Star.hpp", "CEditor", "CTabItem.RRT_STAR_HPP");
+selectTreeTable("main.cpp", "rrt2_single_array_app_system > rrt2_single_array_app > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("rrt2_single_array_app_system", "rrt2_single_array_app_system > rrt2_single_array_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("rrt2_single_array_app_system", "rrt2_single_array_app_system > rrt2_single_array_app > src", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch Hardware", "rrt2_single_array_app_system", "WorkbenchWindow", "MenuItem.1_LAUNCH_HARDWARE");
+selectButton("Yes", "Conflict", "MessageDialog", "Button.YES");
+activateView("New Renderings", "CTabItem", "NEW_RENDERINGS");
+activateView("Vitis Serial Terminal", "SDKTerminalView", "CTabItem.VITIS_SERIAL_TERMINAL");
+selectTreeTable("rrt2_single_array_app_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Build Project", "Explorer", "ProjectExplorer", "MenuItem.BUILD_PROJECT");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+// Exiting Xilinx Vitis with a status code '0' at 12/2/22, 2:47:04 AM CET
+// Elapsed time: 03:09:40
+
